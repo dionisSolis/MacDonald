@@ -1,0 +1,81 @@
+using System;
+namespace MacDonacld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double userMoney;
+            string userChoice;
+            bool isEnoughMoney;
+
+            Console.Write("Введите Ваше количество денег: ");
+            userMoney = double.Parse(Console.ReadLine());
+
+            while (userMoney > 55)
+            {
+                Console.WriteLine("У нас имеется \n1 - Гранд 165 р.\n2 - Чизбургер 60р.\n3 - Гамбургер 55р.\n4 - Биг Спешиал 270 р.");
+                Console.Write("Введите номер пункта: ");
+                userChoice = Console.ReadLine();
+                isEnoughMoney = true;
+
+                switch (userChoice)
+                {
+                    case "1":
+                        if (userMoney < 165)
+                        {
+                            isEnoughMoney = false;
+                            Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
+                        }
+                        if (isEnoughMoney)
+                        {
+                            userMoney -= 165;
+                            Console.WriteLine("Приятного аппетита!");
+                        }
+                        break;
+                    case "2":
+                        if (userMoney < 60)
+                        {
+                            isEnoughMoney = false;
+                            Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
+                        }
+                        if (isEnoughMoney)
+                        {
+                            userMoney -= 60;
+                            Console.WriteLine("Приятного аппетита!");
+                        }
+                        break;
+                    case "3":
+                        if (userMoney < 55)
+                        {
+                            isEnoughMoney = false;
+                            Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
+                        }
+                        if (isEnoughMoney)
+                        {
+                            userMoney -= 55;
+                            Console.WriteLine("Приятного аппетита!");
+                        }
+                        break;
+                    case "4":
+                        if (userMoney < 270)
+                        {
+                            isEnoughMoney = false;
+                            Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
+                        }
+                        if (isEnoughMoney)
+                        {
+                            userMoney -= 270;
+                            Console.WriteLine("Приятного аппетита!");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Данного пункта нет в меню.");
+                        break;
+                }
+
+            }
+
+        }
+    }
+}
