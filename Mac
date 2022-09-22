@@ -22,6 +22,7 @@ namespace MacDonacld
                 switch (userChoice)
                 {
                     case "1":
+
                         if (userMoney < 165)
                         {
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
@@ -33,6 +34,7 @@ namespace MacDonacld
                         }
                         break;
                     case "2":
+
                         if (userMoney < 60)
                         {
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
@@ -44,6 +46,7 @@ namespace MacDonacld
                         }
                         break;
                     case "3":
+
                         if (userMoney < 55)
                         {
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
@@ -55,6 +58,7 @@ namespace MacDonacld
                         }
                         break;
                     case "4":
+
                         if (userMoney < 270)
                         {
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
@@ -72,12 +76,14 @@ namespace MacDonacld
 
                 Console.WriteLine("Желаете продолжить? д/н");
                 answer = Console.ReadLine();
+
                 while (answer != "Д" && answer != "д" && answer != "Н" && answer != "н")
                 {
                     Console.WriteLine("Введите корректно Д(продолжить) или Н(завершить)");
                     answer = Console.ReadLine();
                 }
-                if (answer == "н" || answer == "Н" || userMoney < 55)
+
+                if (answer.ToUpper() == "Н" || userMoney < 55)
                 {
                     break;
                 }
