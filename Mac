@@ -7,27 +7,26 @@ namespace MacDonacld
         {
             double userMoney;
             string userChoice;
-            bool isEnoughMoney;
+            string answer;
 
             Console.Write("Введите Ваше количество денег: ");
             userMoney = double.Parse(Console.ReadLine());
 
-            while (userMoney > 55)
+            while (userMoney >= 55)
             {
-                Console.WriteLine("У нас имеется \n1 - Гранд 165 р.\n2 - Чизбургер 60р.\n3 - Гамбургер 55р.\n4 - Биг Спешиал 270 р.");
+                Console.Clear();
+                Console.WriteLine($"Ваш кошелек составляет {userMoney} р.\nУ нас имеется \n1 - Гранд 165 р.\n2 - Чизбургер 60р.\n3 - Гамбургер 55р.\n4 - Биг Спешиал 270 р.");
                 Console.Write("Введите номер пункта: ");
                 userChoice = Console.ReadLine();
-                isEnoughMoney = true;
 
                 switch (userChoice)
                 {
                     case "1":
                         if (userMoney < 165)
                         {
-                            isEnoughMoney = false;
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             userMoney -= 165;
                             Console.WriteLine("Приятного аппетита!");
@@ -36,10 +35,9 @@ namespace MacDonacld
                     case "2":
                         if (userMoney < 60)
                         {
-                            isEnoughMoney = false;
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             userMoney -= 60;
                             Console.WriteLine("Приятного аппетита!");
@@ -48,10 +46,9 @@ namespace MacDonacld
                     case "3":
                         if (userMoney < 55)
                         {
-                            isEnoughMoney = false;
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             userMoney -= 55;
                             Console.WriteLine("Приятного аппетита!");
@@ -60,10 +57,9 @@ namespace MacDonacld
                     case "4":
                         if (userMoney < 270)
                         {
-                            isEnoughMoney = false;
                             Console.WriteLine("У Вас недостаточно денег, выберете что-нибудь другое ");
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             userMoney -= 270;
                             Console.WriteLine("Приятного аппетита!");
@@ -74,8 +70,26 @@ namespace MacDonacld
                         break;
                 }
 
+                Console.WriteLine("Желаете продолжить? д/н");
+                answer = Console.ReadLine();
+                while (answer != "Д" && answer != "д" && answer != "Н" && answer != "н")
+                {
+                    Console.WriteLine("Введите корректно Д(продолжить) или Н(завершить)");
+                    answer = Console.ReadLine();
+                }
+                if (answer == "н" || answer == "Н" || userMoney < 55)
+                {
+                    break;
+                }
             }
 
+            if (userMoney < 55)
+            {
+                Console.WriteLine("У Вас не хватает денег");
+            }
+
+            Console.WriteLine("До свидания!");
+            Console.Read();
         }
     }
 }
